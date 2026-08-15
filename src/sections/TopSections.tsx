@@ -180,8 +180,8 @@ export function Hero() {
 function StatCard({ value, decimals, suffix, label, format, run, delay }: { value: number; decimals: number; suffix: string; label: string; format?: boolean; run: boolean; delay: number }) {
   const v = useCountUp(value, run, 1500 + delay, decimals);
   return (
-    <div className="group rounded-xl bg-paper-50 border border-paper-200 p-6 sm:p-8 hover:border-brand-600/50 hover:-translate-y-1.5 hover:shadow-[0_25px_60px_-25px_rgba(217,30,38,0.35)] transition-all duration-300">
-      <p className="font-display font-black text-4xl sm:text-5xl text-ink-900 leading-none tracking-tight">
+    <div className="group min-w-0 rounded-xl bg-paper-50 border border-paper-200 p-6 sm:p-8 hover:border-brand-600/50 hover:-translate-y-1.5 hover:shadow-[0_25px_60px_-25px_rgba(217,30,38,0.35)] transition-all duration-300">
+      <p className="font-display font-black text-[2rem] sm:text-5xl text-ink-900 leading-none tracking-tight whitespace-nowrap">
         {format ? fmt(Number(v.replace(/\s/g, "")) || 0) : v}
         <span className="text-brand-600">{suffix}</span>
       </p>

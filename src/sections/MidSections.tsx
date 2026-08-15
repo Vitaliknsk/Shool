@@ -33,7 +33,7 @@ export function Steps() {
                     <span className="lg:hidden absolute -left-0 top-0 font-display font-black text-7xl text-brand-600/10 leading-none select-none" aria-hidden="true">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <div className="lg:mt-5 relative">
+                    <div className="lg:mt-5 relative min-w-0">
                       <span className="inline-flex w-12 h-12 rounded-xl bg-brand-50 text-brand-600 items-center justify-center">
                         <Ic className="w-6 h-6" />
                       </span>

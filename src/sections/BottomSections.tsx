@@ -262,7 +262,7 @@ export function Quiz({ onPlanChosen }: { onPlanChosen: (plan: string) => void })
               <div className="h-2 rounded-full bg-ink-700 overflow-hidden">
                 <div className="h-full rounded-full bg-brand-600 transition-all duration-500" style={{ width: `${progress}%` }} />
               </div>
-              <SideCar className="car-bob absolute -top-6 w-10 h-5 text-brand-500 transition-all duration-500" style={{ left: `calc(${progress}% - 22px)` }} />
+              <SideCar className="car-bob absolute -top-6 w-10 h-5 text-brand-500 transition-all duration-500" style={{ left: `min(calc(${progress}% - 20px), calc(100% - 40px))` }} />
             </div>
             <p className="mt-3 text-xs font-bold text-ink-300 uppercase tracking-wider">
               {phase === "quiz" ? `Шаг ${step + 1} из ${QUIZ_STEPS.length}` : phase === "result" ? "Результат готов" : "Заявка принята"}
