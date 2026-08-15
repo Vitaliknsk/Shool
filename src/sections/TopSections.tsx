@@ -300,11 +300,11 @@ export function Tariffs({ onChoose }: { onChoose: (name: string) => void }) {
           lead="Цена из договора — финальная. Топливо, экзамены и сопровождение уже включены. Рассрочка 0% — от 5 000 ₽ первый взнос."
         />
 
-        <div className="mt-12 grid sm:grid-cols-2 gap-5 lg:gap-6">
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
           {PLANS.map((plan, i) => (
-            <Reveal key={plan.id} delay={i * 90}>
+            <Reveal key={plan.id} delay={i * 90} className="min-w-0">
               <article
-                className={`relative h-full flex flex-col rounded-xl p-7 sm:p-8 transition-all duration-300 hover:-translate-y-2 ${
+                className={`relative h-full min-w-0 flex flex-col rounded-xl p-5 sm:p-7 transition-all duration-300 hover:-translate-y-2 ${
                   plan.dark
                     ? "bg-ink-900 text-paper-50 shadow-[0_35px_80px_-30px_rgba(7,11,21,0.7)] ring-2 ring-brand-600"
                     : "bg-paper-50 border border-paper-200 hover:shadow-[0_30px_70px_-30px_rgba(12,19,34,0.35)]"
@@ -329,14 +329,14 @@ export function Tariffs({ onChoose }: { onChoose: (name: string) => void }) {
                   </span>
                 </div>
 
-                <p className={`mt-5 font-display font-black text-4xl tracking-tight ${plan.dark ? "text-paper-50" : "text-ink-900"}`}>
-                  {fmt(plan.price)} <span className="text-2xl">₽</span>
+                <p className={`mt-5 font-display font-black text-[2rem] sm:text-4xl tracking-tight break-words leading-none ${plan.dark ? "text-paper-50" : "text-ink-900"}`}>
+                  <span className="whitespace-nowrap">{fmt(plan.price)} <span className="text-[1.4rem] sm:text-2xl">₽</span></span>
                 </p>
                 <p className={`mt-1 text-sm font-bold ${plan.dark ? "text-brand-400" : "text-brand-600"}`}>{plan.monthly} в рассрочку 0%</p>
 
-                <ul className="mt-6 space-y-3 flex-1">
+                <ul className="mt-6 space-y-3 flex-1 min-w-0">
                   {plan.features.map((f) => (
-                    <li key={f.text} className="flex items-start gap-2.5 text-sm leading-snug">
+                    <li key={f.text} className="flex items-start gap-2.5 text-sm leading-snug min-w-0">
                       <span
                         className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
                           f.on
@@ -350,7 +350,7 @@ export function Tariffs({ onChoose }: { onChoose: (name: string) => void }) {
                       >
                         {f.on ? <IcCheck className="w-3 h-3" /> : <IcCross className="w-3 h-3" />}
                       </span>
-                      <span className={f.on ? (plan.dark ? "text-paper-50/90" : "text-ink-500") : plan.dark ? "text-ink-400 line-through decoration-ink-600" : "text-ink-400 line-through decoration-paper-300"}>
+                      <span className={`min-w-0 break-words ${f.on ? (plan.dark ? "text-paper-50/90" : "text-ink-500") : plan.dark ? "text-ink-400 line-through decoration-ink-600" : "text-ink-400 line-through decoration-paper-300"}`}>
                         {f.text}
                       </span>
                     </li>

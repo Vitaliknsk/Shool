@@ -318,7 +318,10 @@ export function Quiz({ onPlanChosen }: { onPlanChosen: (plan: string) => void })
                   </div>
                   {err && <p className="mt-2 text-xs font-bold text-brand-400">{err}</p>}
                   <button type="submit" className="btn btn-primary btn-lg w-full mt-4">Получить результат и бонус</button>
-                  <p className="mt-3 text-[11px] text-ink-400 text-center">Отправим промокод в WhatsApp и перезвоним за 15 минут. Без навязывания.</p>
+                  <p className="mt-3 text-[11px] text-ink-400 text-center leading-relaxed">
+                    Отправим промокод в WhatsApp и перезвоним за 15 минут. Без навязывания.<br className="sm:hidden" />
+                    <span className="text-ink-500/80">Отправляя форму, вы соглашаетесь на обработку персональных данных (152-ФЗ).</span>
+                  </p>
                 </form>
                 <button onClick={reset} className="mt-4 text-sm font-bold text-ink-300 hover:text-paper-50 transition-colors">↺ Пройти ещё раз</button>
               </div>
@@ -480,14 +483,24 @@ export function LeadForm({ plan, onClearPlan, onLegal }: { plan: string | null; 
                   <label className="flex items-start gap-2.5 cursor-pointer select-none">
                     <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} className="mt-0.5 w-4 h-4 accent-[#d91e26] shrink-0" />
                     <span className="text-[11.5px] leading-relaxed text-ink-400">
-                      Согласен(на) на обработку персональных данных.{" "}
+                      Согласен(на) на обработку персональных данных в соответствии со 152-ФЗ «О персональных данных».{" "}
                       <button type="button" onClick={onLegal} className="underline hover:text-brand-600 transition-colors">Политика конфиденциальности</button>
                     </span>
                   </label>
+
+                  <div className="rounded-lg bg-paper-100 border border-paper-200 p-3.5 flex items-start gap-2.5">
+                    <IcDoc className="w-[18px] h-[18px] text-brand-600 shrink-0 mt-0.5" />
+                    <p className="text-[11px] leading-relaxed text-ink-400">
+                      <b className="text-ink-500">Собираем только имя и телефон</b> — они нужны, чтобы перезвонить и ответить на вопросы.
+                      Обработка персональных данных ведётся в соответствии с законодательством РФ (152-ФЗ): данные хранятся на серверах в России,
+                      не передаются третьим лицам и удаляются по первому запросу.{" "}
+                      <button type="button" onClick={onLegal} className="underline hover:text-brand-600 transition-colors">Подробнее</button>
+                    </p>
+                  </div>
                 </form>
 
                 <p className="mt-5 pt-5 border-t border-paper-200 flex items-center gap-2 text-[11.5px] text-ink-400 font-semibold">
-                  <IcShield className="w-4 h-4 text-brand-600 shrink-0" /> Данные защищены и не передаются третьим лицам
+                  <IcShield className="w-4 h-4 text-brand-600 shrink-0" /> Данные защищены по 152-ФЗ и не передаются третьим лицам
                 </p>
               </>
             )}

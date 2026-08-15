@@ -86,7 +86,9 @@ body::after {
   margin-inline: auto;
   width: 100%;
   max-width: 76rem;
+  min-width: 0;
   padding-inline: 1.25rem;
+  overflow-x: clip;
 }
 @media (min-width: 640px) {
   .wrap { padding-inline: 2rem; }
