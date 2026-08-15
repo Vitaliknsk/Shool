@@ -45,10 +45,10 @@ export function Reviews() {
                 <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-brand-600 text-paper-50 flex items-center justify-center shadow-[0_15px_40px_-10px_rgba(217,30,38,0.8)] transition-transform duration-300 group-hover:scale-110">
                   <IcPlay className="w-7 h-7 translate-x-0.5" />
                 </span>
-                <span className="absolute bottom-0 inset-x-0 p-5 flex items-end justify-between gap-3">
-                  <span>
-                    <span className="block font-display font-extrabold text-paper-50 text-lg">{v.name}: {v.title}</span>
-                    <span className="block text-xs text-ink-200 font-semibold mt-0.5">курсант категории B · запись из учебного авто</span>
+                <span className="absolute bottom-0 inset-x-0 p-4 sm:p-5 flex items-end justify-between gap-3">
+                  <span className="min-w-0">
+                    <span className="block font-display font-extrabold text-paper-50 text-[15px] sm:text-lg leading-snug">{v.name}: {v.title}</span>
+                    <span className="hidden sm:block text-xs text-ink-200 font-semibold mt-0.5">курсант категории B · запись из учебного авто</span>
                   </span>
                   <span className="rounded-md bg-ink-950/80 text-paper-50 text-xs font-bold px-2 py-1 shrink-0">{v.duration}</span>
                 </span>
@@ -302,8 +302,8 @@ export function Quiz({ onPlanChosen }: { onPlanChosen: (plan: string) => void })
                 <span className="inline-flex items-center gap-2 rounded-full bg-brand-600/15 border border-brand-600/40 text-brand-400 text-xs font-extrabold uppercase tracking-wider px-4 py-1.5">
                   <IcWheel className="w-4 h-4" /> Твой результат
                 </span>
-                <h3 className="mt-4 font-display font-black text-paper-50 text-3xl sm:text-4xl">
-                  Тариф «{res.plan}» · <span className="text-brand-500">{res.price}</span>
+                <h3 className="mt-4 font-display font-black text-paper-50 text-[1.45rem] leading-tight sm:text-3xl lg:text-4xl">
+                  Тариф «{res.plan}» · <span className="text-brand-500 whitespace-nowrap">{res.price}</span>
                 </h3>
                 <p className="mt-2 text-ink-300 text-sm max-w-md mx-auto">{res.note}. Рассрочка 0% — первый взнос от 5 000 ₽.</p>
                 <div className="mt-5 mx-auto max-w-md rounded-xl border border-dashed border-brand-500/70 bg-brand-600/10 p-4 flex items-center justify-center gap-3 text-sm font-bold text-paper-50">
@@ -464,7 +464,7 @@ export function LeadForm({ plan, onClearPlan, onLegal }: { plan: string | null; 
                     <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Выбор категории">
                       {["A", "B", "Пока не знаю"].map((c) => (
                         <button type="button" key={c} onClick={() => setCat(c)} aria-pressed={cat === c}
-                          className={`rounded-lg border-2 py-2.5 text-sm font-extrabold transition-all ${cat === c ? "border-brand-600 bg-brand-600 text-paper-50 shadow-[0_10px_25px_-12px_rgba(217,30,38,0.7)]" : "border-paper-200 text-ink-500 hover:border-brand-300"}`}>
+                          className={`rounded-lg border-2 py-2.5 px-1 text-[12.5px] sm:text-sm font-extrabold transition-all leading-tight ${cat === c ? "border-brand-600 bg-brand-600 text-paper-50 shadow-[0_10px_25px_-12px_rgba(217,30,38,0.7)]" : "border-paper-200 text-ink-500 hover:border-brand-300"}`}>
                           {c}
                         </button>
                       ))}

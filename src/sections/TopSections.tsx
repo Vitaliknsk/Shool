@@ -24,9 +24,9 @@ export function Header() {
           <span className="w-11 h-11 rounded-full bg-brand-600 text-paper-50 flex items-center justify-center shadow-[0_10px_25px_-8px_rgba(217,30,38,0.8)]">
             <IcWheel className="w-6 h-6" />
           </span>
-          <span className="font-display font-black text-paper-50 text-lg leading-none tracking-wide">
+          <span className="font-display font-black text-paper-50 text-lg leading-none tracking-wide min-w-0">
             ЗА <span className="text-brand-500">РУЛЁМ</span>
-            <span className="block text-[10px] font-body font-bold tracking-[0.3em] text-ink-300 mt-1">АВТОШКОЛА · НОВОСИБИРСК</span>
+            <span className="hidden min-[400px]:block text-[9px] font-body font-bold tracking-[0.24em] text-ink-300 mt-1 truncate">АВТОШКОЛА · НОВОСИБИРСК</span>
           </span>
         </a>
 
@@ -121,49 +121,49 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/40" />
       </div>
 
-      <div className="wrap relative pt-32 pb-10 lg:pb-14">
+      <div className="wrap relative pt-24 pb-8 sm:pt-28 lg:pb-14 w-full">
         <div className="max-w-3xl">
           <Reveal>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full bg-brand-600 text-paper-50 text-xs font-extrabold uppercase tracking-[0.18em] px-4 py-2">
-                <IcPin className="w-3.5 h-3.5" /> Новосибирск · Центральный район
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-600 text-paper-50 text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.14em] px-3 sm:px-4 py-1.5 sm:py-2">
+                <IcPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" /> Новосибирск
               </span>
-              <span className="inline-flex items-center gap-2 text-xs font-bold text-paper-50/70">
-                <span className="w-2 h-2 rounded-full bg-[#25d366] pulse-dot" /> идёт набор — старт {nextGroupDate()}
+              <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold text-paper-50/70">
+                <span className="w-2 h-2 rounded-full bg-[#25d366] pulse-dot shrink-0" /> набор открыт · старт {nextGroupDate()}
               </span>
             </div>
           </Reveal>
 
           <Reveal delay={90}>
-            <h1 className="mt-6 font-display font-black text-paper-50 text-[2.1rem] leading-[1.08] sm:text-5xl lg:text-[3.6rem] tracking-tight">
-              Получи права категории B за <span className="marker">2,5 месяца</span> в Новосибирске. Рассрочка 0%. Начни с <span className="text-brand-500">5 000 ₽</span>
+            <h1 className="mt-4 sm:mt-6 font-display font-black text-paper-50 text-[1.55rem] leading-[1.14] sm:text-[2.6rem] sm:leading-[1.06] lg:text-[3.5rem] tracking-tight">
+              Получи права категории B за <span className="marker">2,5 месяца</span> в&nbsp;Новосибирске. Рассрочка&nbsp;0%. Начни с&nbsp;<span className="text-brand-500">5&nbsp;000&nbsp;₽</span>
             </h1>
           </Reveal>
 
           <Reveal delay={170}>
-            <p className="mt-5 text-base sm:text-xl text-paper-50/85 max-w-2xl leading-relaxed font-medium">
-              Лицензированная автошкола. Теория онлайн. Практика в центре города. <b className="text-paper-50">5 000+ выпускников.</b>
+            <p className="mt-3.5 sm:mt-5 text-[13.5px] sm:text-lg text-paper-50/85 max-w-2xl leading-snug sm:leading-relaxed font-medium">
+              Лицензированная автошкола · теория онлайн · практика в центре · <b className="text-paper-50">5&nbsp;000+ выпускников</b>
             </p>
           </Reveal>
 
           <Reveal delay={250}>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#lead" className="btn btn-primary btn-lg">
-                Записаться онлайн <IcArrow className="w-5 h-5" />
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
+              <a href="#lead" className="btn btn-primary btn-lg w-full sm:w-auto">
+                Записаться онлайн <IcArrow className="w-5 h-5 shrink-0" />
               </a>
-              <a href={CONTACTS.wa} target="_blank" rel="noopener noreferrer" data-goal="whatsapp_click" className="btn btn-md bg-[#25d366] text-ink-950 hover:brightness-110 hover:-translate-y-0.5 !px-6 !py-[1.05rem]">
-                <IcWhatsApp className="w-5 h-5" /> Написать в WhatsApp
+              <a href={CONTACTS.wa} target="_blank" rel="noopener noreferrer" data-goal="whatsapp_click" className="btn btn-md bg-[#25d366] text-ink-950 hover:brightness-110 hover:-translate-y-0.5 !px-6 !py-4 w-full sm:w-auto sm:!py-[1.05rem]">
+                <IcWhatsApp className="w-5 h-5 shrink-0" /> Написать в WhatsApp
               </a>
             </div>
           </Reveal>
 
           <Reveal delay={330}>
-            <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
+            <ul className="mt-7 sm:mt-10 grid grid-cols-2 gap-x-4 gap-y-2.5 sm:flex sm:flex-wrap sm:gap-x-7 sm:gap-y-3 max-w-xl">
               {TRUST.map((t) => {
                 const Ic = ICONS[t.icon];
                 return (
-                  <li key={t.text} className="flex items-center gap-2 text-sm font-bold text-paper-50/85">
-                    <Ic className="w-[18px] h-[18px] text-brand-500 shrink-0" />
+                  <li key={t.text} className="flex items-center gap-2 text-[11.5px] sm:text-sm font-bold text-paper-50/85 leading-tight">
+                    <Ic className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-brand-500 shrink-0" />
                     {t.text}
                   </li>
                 );
@@ -272,8 +272,8 @@ export function Promos() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {PROMOS.map((p, i) => (
             <Reveal key={p.title} delay={i * 80} variant="reveal-scale">
-              <div className={`coupon coupon-notch rounded-xl border-2 border-dashed border-brand-600/60 bg-paper-50 p-5 sm:p-6 text-center ${tilts[i % 4]}`} style={{ ["--tilt" as never]: ["-2deg", "1deg", "-1deg", "2deg"][i % 4] }}>
-                <p className="font-display font-black text-2xl sm:text-3xl text-brand-600 leading-none">{p.value}</p>
+              <div className={`coupon coupon-notch rounded-xl border-2 border-dashed border-brand-600/60 bg-paper-50 p-4 sm:p-6 text-center ${tilts[i % 4]}`} style={{ ["--tilt" as never]: ["-2deg", "1deg", "-1deg", "2deg"][i % 4] }}>
+                <p className="font-display font-black text-xl sm:text-2xl xl:text-3xl text-brand-600 leading-none">{p.value}</p>
                 <p className="mt-2 font-extrabold text-ink-900 text-sm sm:text-base">{p.title}</p>
                 <p className="mt-1 text-[11px] sm:text-xs font-semibold text-ink-400">{p.note}</p>
                 <span className="absolute top-3 right-3 text-ink-300" aria-hidden="true">
