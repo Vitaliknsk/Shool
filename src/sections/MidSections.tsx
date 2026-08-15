@@ -244,11 +244,11 @@ export function AppDemo() {
               </div>
             </div>
 
-            <div className="floaty absolute -right-6 top-16 sm:-right-16 rounded-xl bg-ink-900 text-paper-50 px-4 py-3 shadow-xl" style={{ ["--tilt" as string]: "3deg" }}>
+            <div className="floaty absolute -right-1 top-16 sm:-right-16 rounded-xl bg-ink-900 text-paper-50 px-3 sm:px-4 py-2.5 sm:py-3 shadow-xl max-w-[46%]" style={{ ["--tilt" as string]: "3deg" }}>
               <p className="text-[10px] font-bold text-ink-300">Готовность к теории</p>
               <p className="font-display font-black text-lg text-brand-400">72%</p>
             </div>
-            <div className="floaty absolute -left-4 bottom-20 sm:-left-14 rounded-xl bg-brand-600 text-paper-50 px-4 py-3 shadow-xl" style={{ ["--tilt" as string]: "-3deg", animationDelay: "1.2s" }}>
+            <div className="floaty absolute -left-1 bottom-20 sm:-left-14 rounded-xl bg-brand-600 text-paper-50 px-3 sm:px-4 py-2.5 sm:py-3 shadow-xl max-w-[52%]" style={{ ["--tilt" as string]: "-3deg", animationDelay: "1.2s" }}>
               <p className="text-[10px] font-bold text-paper-50/80">Следующее занятие</p>
               <p className="font-display font-black text-lg">Сегодня · 18:00</p>
             </div>
