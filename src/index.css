@@ -72,6 +72,10 @@ p, li, a, span, button, td {
 img, iframe, svg {
   max-width: 100%;
 }
+/* если внешнее фото не загрузилось — вместо «рваной» картинки тёмная подложка */
+img {
+  background-color: var(--color-ink-800);
+}
 
 ::selection {
   background: var(--color-brand-600);
