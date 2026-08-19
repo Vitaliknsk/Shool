@@ -153,10 +153,21 @@ export function goTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ block: "start" });
 }
 
-/* ---------- ближайший набор группы (первый понедельник след. месяца) ---------- */
+/* ---------- ближайший понедельник ---------- */
 export function nextGroupDate() {
-  const now = new Date();
-  const d = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-  while (d.getDay() !== 1) d.setDate(d.getDate() + 1);
-  return d.toLocaleDateString("ru-RU", { day: "numeric", month: "long" });
+  return nextMondays(1)[0].toLocaleDateString("ru-RU", { day: "numeric", month: "long" });
+}
+
+/* ---------- ближайшие N понедельников (даты наборов групп) ---------- */
+export function nextMondays(count: number): Date[] {
+  const res: Date[] = [];
+  const d = new Date();
+  const day = d.getDay(); // 0=вс … 6=сб
+  const offset = (8 - day) % 7 || 7;
+  d.setDate(d.getDate() + offset);
+  while (res.length < count) {
+    res.push(new Date(d));
+    d.setDate(d.getDate() + 7);
+  }
+  return res;
 }

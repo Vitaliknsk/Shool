@@ -10,7 +10,7 @@ export function Steps() {
     <section id="steps" className="relative bg-paper-50 py-20 lg:py-28 overflow-hidden scroll-mt-20" aria-label="Этапы обучения">
       <div className="wrap">
         <SectionHead
-          num="03"
+          num="04"
           kicker="путь к правам"
           title="6 шагов — и права у тебя"
           lead="Средний путь занимает 2,5 месяца. Вот как он выглядит — без воды и лишних визитов."
@@ -58,7 +58,7 @@ export function Advantages() {
       <div className="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full bg-brand-600/10 blur-3xl" aria-hidden="true" />
       <div className="wrap relative">
         <SectionHead
-          num="04"
+          num="05"
           kicker="почему мы"
           dark
           title="Учиться удобно. Учиться спокойно"
@@ -70,7 +70,7 @@ export function Advantages() {
             const Ic = ICONS[a.icon];
             return (
               <Reveal key={a.title} delay={(i % 3) * 100}>
-                <div className="group h-full rounded-xl border border-paper-50/10 bg-paper-50/[0.04] p-6 sm:p-7 hover:border-brand-600/60 hover:bg-brand-600/10 transition-all duration-300 hover:-translate-y-1.5">
+                <div className="group h-full min-w-0 rounded-xl border border-paper-50/10 bg-paper-50/[0.04] p-6 sm:p-7 hover:border-brand-600/60 hover:bg-brand-600/10 transition-all duration-300 hover:-translate-y-1.5">
                   <span className="w-12 h-12 rounded-xl bg-brand-600/15 text-brand-400 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-paper-50 group-hover:scale-110 transition-all duration-300">
                     <Ic className="w-6 h-6" />
                   </span>
@@ -186,7 +186,7 @@ export function AppDemo() {
       <div className="wrap grid lg:grid-cols-2 gap-14 items-center">
         <div>
           <SectionHead
-            num="05"
+            num="06"
             kicker="онлайн-теория"
             title="Учи теорию в метро, в очереди, за завтраком"
             lead="Видеоуроки + конспекты + тесты, идентичные экзаменационным. Вопросы преподавателю — в чате. Прогресс видят и ученик, и школа."
@@ -265,7 +265,7 @@ export function Instructors() {
     <section id="instructors" className="relative bg-paper-50 py-20 lg:py-28 scroll-mt-20" aria-label="Инструкторы и автопарк">
       <div className="wrap">
         <SectionHead
-          num="06"
+          num="07"
           kicker="команда и техника"
           title="Инструкторы, которых советуют друзьям"
           lead="Никаких хамов. Если не подошёл инструктор — подберём нового за 1 день, без вопросов."
@@ -274,12 +274,13 @@ export function Instructors() {
         <div className="mt-12 grid sm:grid-cols-3 gap-6">
           {INSTRUCTORS.map((ins, i) => (
             <Reveal key={ins.name} delay={i * 110}>
-              <article className="group h-full flex flex-col rounded-xl overflow-hidden bg-paper-100 border border-paper-200 hover:-translate-y-2 hover:shadow-[0_35px_70px_-30px_rgba(12,19,34,0.4)] transition-all duration-300">
+              <article className="group h-full min-w-0 flex flex-col rounded-xl overflow-hidden bg-paper-100 border border-paper-200 hover:-translate-y-2 hover:shadow-[0_35px_70px_-30px_rgba(12,19,34,0.4)] transition-all duration-300">
                 <div className="relative overflow-hidden">
                   <img
                     src={IMG[ins.img as keyof typeof IMG]}
                     alt={`Инструктор автошколы — ${ins.name}`}
                     loading="lazy"
+                    decoding="async"
                     className="w-full aspect-[4/4.4] object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent" />
@@ -302,7 +303,7 @@ export function Instructors() {
         <div className="mt-14 grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-stretch">
           <Reveal variant="reveal-left">
             <div className="relative h-full rounded-xl overflow-hidden group min-h-[320px]">
-              <img src={IMG.fleet} alt="Учебные автомобили автошколы: Lada Vesta с АКПП и Kia Rio с МКПП на снежной площадке" loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+              <img src={IMG.fleet} alt="Учебные автомобили автошколы: Lada Vesta с АКПП и Kia Rio с МКПП на снежной площадке" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/20 to-transparent" />
               <div className="absolute bottom-0 inset-x-0 p-7">
                 <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-400">Автопарк 2022–2023</p>
@@ -314,7 +315,7 @@ export function Instructors() {
           <div className="grid gap-4">
             {FLEET.map((car, i) => (
               <Reveal key={car.name} delay={i * 90}>
-                <div className="h-full rounded-xl border border-paper-200 bg-paper-100 p-5 flex items-center gap-4 hover:border-brand-600/50 transition-colors">
+                <div className="h-full min-w-0 rounded-xl border border-paper-200 bg-paper-100 p-5 flex items-center gap-4 hover:border-brand-600/50 transition-colors">
                   <span className="rounded-lg bg-ink-900 text-paper-50 text-xs font-black px-3 py-2 shrink-0">{car.gearbox}</span>
                   <div className="min-w-0">
                     <p className="font-extrabold text-ink-900 leading-tight">{car.name}</p>
@@ -336,7 +337,7 @@ export function MapSection() {
     <section id="map" className="relative bg-ink-950 py-20 lg:py-28 overflow-hidden scroll-mt-20" aria-label="Где мы находимся">
       <div className="wrap">
         <SectionHead
-          num="07"
+          num="08"
           kicker="где мы находимся"
           dark
           title="Центр города — и маршруты у твоего дома"
@@ -347,12 +348,12 @@ export function MapSection() {
           <div className="space-y-4">
             {LOCATIONS.map((loc, i) => (
               <Reveal key={loc.title} delay={i * 100} variant="reveal-left">
-                <div className={`rounded-xl border p-6 transition-colors ${loc.main ? "border-brand-600/60 bg-brand-600/10" : "border-paper-50/10 bg-paper-50/[0.04]"} hover:border-brand-500`}>
+                <div className={`min-w-0 rounded-xl border p-6 transition-colors ${loc.main ? "border-brand-600/60 bg-brand-600/10" : "border-paper-50/10 bg-paper-50/[0.04]"} hover:border-brand-500`}>
                   <div className="flex items-start gap-3.5">
                     <span className={`w-11 h-11 rounded-full flex items-center justify-center shrink-0 ${loc.main ? "bg-brand-600 text-paper-50" : "bg-paper-50/10 text-brand-400"}`}>
                       <IcPin className="w-5 h-5" />
                     </span>
-                    <div>
+                    <div className="min-w-0">
                       <p className="font-display font-extrabold text-paper-50">{loc.title}</p>
                       <p className="mt-1 text-sm font-semibold text-paper-50/85">{loc.address}</p>
                       <p className="mt-1.5 flex items-center gap-2 text-xs font-bold text-ink-300">

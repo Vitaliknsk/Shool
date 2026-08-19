@@ -14,9 +14,9 @@ export function Reviews() {
   const [video, setVideo] = useState<(typeof VIDEO_REVIEWS)[number] | null>(null);
 
   return (
-    <section id="reviews" className="relative bg-paper-100 py-20 lg:py-28 scroll-mt-20" aria-label="Отзывы выпускников">
+    <section id="reviews" className="relative bg-paper-100 py-20 lg:py-28 scroll-mt-20">
       <div className="wrap">
-        <SectionHead num="08" kicker="отзывы выпускников" title="Что говорят те, кто уже сдал" lead="Не выбираем «удобные» — публикуем как есть: с именами, датами и проверяемыми источниками." />
+        <SectionHead num="09" kicker="отзывы выпускников" title="Что говорят те, кто уже сдал" lead="Не выбираем «удобные» — публикуем как есть: с именами, датами и проверяемыми источниками." />
 
         <Reveal delay={100}>
           <div className="mt-10 flex flex-wrap gap-3">
@@ -38,8 +38,8 @@ export function Reviews() {
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {VIDEO_REVIEWS.map((v, i) => (
             <Reveal key={v.name} delay={i * 110}>
-              <button onClick={() => setVideo(v)} className="group relative w-full overflow-hidden rounded-xl text-left shadow-lg focus:outline-none focus:ring-4 focus:ring-brand-600/40">
-                <img src={IMG[v.img as keyof typeof IMG]} alt={`Видеоотзыв курсанта автошколы — ${v.name}`} loading="lazy" className="w-full aspect-[16/9.5] object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]" />
+              <button onClick={() => setVideo(v)} className="group relative w-full min-w-0 overflow-hidden rounded-xl text-left shadow-lg focus:outline-none focus:ring-4 focus:ring-brand-600/40">
+                <img src={IMG[v.img as keyof typeof IMG]} alt={`Видеоотзыв курсанта автошколы — ${v.name}`} loading="lazy" decoding="async" className="w-full aspect-[16/9.5] object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]" />
                 <span className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/25 to-ink-950/20 transition-colors group-hover:from-ink-950/80" />
                 <span className="absolute top-4 left-4 rounded-full bg-brand-600 text-paper-50 text-[11px] font-extrabold uppercase tracking-wider px-3 py-1.5">Видеоотзыв</span>
                 <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-brand-600 text-paper-50 flex items-center justify-center shadow-[0_15px_40px_-10px_rgba(217,30,38,0.8)] transition-transform duration-300 group-hover:scale-110">
@@ -60,9 +60,9 @@ export function Reviews() {
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {REVIEWS.map((r, i) => (
             <Reveal key={r.name} delay={(i % 3) * 90}>
-              <article className="h-full flex flex-col rounded-xl bg-paper-50 border border-paper-200 p-6 shadow-sm hover:shadow-[0_25px_55px_-28px_rgba(12,19,34,0.4)] hover:-translate-y-1 transition-all duration-300">
+              <article className="h-full min-w-0 flex flex-col rounded-xl bg-paper-50 border border-paper-200 p-6 shadow-sm hover:shadow-[0_25px_55px_-28px_rgba(12,19,34,0.4)] hover:-translate-y-1 transition-all duration-300">
                 <div className="flex items-center gap-3.5">
-                  <img src={IMG[r.img as keyof typeof IMG]} alt={`Курсант автошколы — ${r.name}`} loading="lazy" className="w-12 h-12 rounded-full object-cover object-top ring-2 ring-brand-600/30" />
+                  <img src={IMG[r.img as keyof typeof IMG]} alt={`Курсант автошколы — ${r.name}`} loading="lazy" decoding="async" className="w-12 h-12 rounded-full object-cover object-top ring-2 ring-brand-600/30" />
                   <div className="min-w-0">
                     <h3 className="font-extrabold text-ink-900 text-[15px] leading-tight truncate">{r.name}</h3>
                     <p className="text-xs text-ink-400 font-semibold mt-0.5">{r.meta}</p>
@@ -82,7 +82,7 @@ export function Reviews() {
           ))}
 
           <Reveal delay={180}>
-            <article className="h-full flex flex-col justify-center rounded-xl bg-ink-900 text-paper-50 p-7 relative overflow-hidden">
+            <article className="h-full min-w-0 flex flex-col justify-center rounded-xl bg-ink-900 text-paper-50 p-7 relative overflow-hidden">
               <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-brand-600/20 blur-2xl" aria-hidden="true" />
               <p className="font-display font-black text-6xl leading-none">4,9</p>
               <Stars className="w-5 h-5 mt-3 text-brand-500" />
@@ -139,10 +139,10 @@ export function Reviews() {
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative bg-paper-50 py-20 lg:py-28 scroll-mt-20" aria-label="Частые вопросы">
+    <section id="faq" className="relative bg-paper-50 py-20 lg:py-28 scroll-mt-20">
       <div className="wrap grid lg:grid-cols-[0.85fr_1.15fr] gap-12">
         <div className="lg:sticky lg:top-28 self-start">
-          <SectionHead num="09" kicker="частые вопросы" title="Спрашивают перед стартом" lead="Собрали то, что чаще всего пишут в WhatsApp. Если вашего вопроса нет — просто спросите, ответим за пару минут." />
+          <SectionHead num="10" kicker="частые вопросы" title="Спрашивают перед стартом" lead="Собрали то, что чаще всего пишут в WhatsApp. Если вашего вопроса нет — просто спросите, ответим за пару минут." />
           <Reveal delay={150}>
             <div className="mt-8 rounded-xl border border-paper-200 bg-paper-100 p-6">
               <p className="font-display font-extrabold text-ink-900">Не нашли ответ?</p>
@@ -244,11 +244,11 @@ export function Quiz({ onPlanChosen }: { onPlanChosen: (plan: string) => void })
   const res = phase === "quiz" ? null : quizResult(answers);
 
   return (
-    <section id="quiz" className="relative bg-ink-950 py-20 lg:py-28 scroll-mt-20 overflow-hidden" aria-label="Подбор тарифа">
+    <section id="quiz" className="relative bg-ink-950 py-20 lg:py-28 scroll-mt-20 overflow-hidden">
       <div className="absolute -left-24 -top-24 w-[420px] h-[420px] rounded-full bg-brand-600/10 blur-3xl" aria-hidden="true" />
       <div className="wrap relative">
         <SectionHead
-          num="10"
+          num="11"
           kicker="подбор тарифа"
           dark
           center
@@ -279,11 +279,11 @@ export function Quiz({ onPlanChosen }: { onPlanChosen: (plan: string) => void })
                       <button
                         key={o.v}
                         onClick={() => pick(o.v)}
-                        className={`rounded-xl border-2 p-4 text-left transition-all duration-200 hover:-translate-y-1 flex flex-col gap-3 ${
+                        className={`min-w-0 rounded-xl border-2 p-4 text-left transition-all duration-200 hover:-translate-y-1 flex flex-col gap-3 ${
                           selected ? "border-brand-600 bg-brand-600/15" : "border-ink-600 bg-ink-900 hover:border-brand-500"
                         }`}
                       >
-                        <Ic className={`w-6 h-6 ${selected ? "text-brand-400" : "text-brand-500"}`} />
+                        <Ic className={`w-6 h-6 shrink-0 ${selected ? "text-brand-400" : "text-brand-500"}`} />
                         <span className="font-bold text-sm text-paper-50/90 leading-snug">{o.label}</span>
                       </button>
                     );
@@ -318,10 +318,7 @@ export function Quiz({ onPlanChosen }: { onPlanChosen: (plan: string) => void })
                   </div>
                   {err && <p className="mt-2 text-xs font-bold text-brand-400">{err}</p>}
                   <button type="submit" className="btn btn-primary btn-lg w-full mt-4">Получить результат и бонус</button>
-                  <p className="mt-3 text-[11px] text-ink-400 text-center leading-relaxed">
-                    Отправим промокод в WhatsApp и перезвоним за 15 минут. Без навязывания.<br className="sm:hidden" />
-                    <span className="text-ink-500/80">Отправляя форму, вы соглашаетесь на обработку персональных данных (152-ФЗ).</span>
-                  </p>
+                  <p className="mt-3 text-[11px] text-ink-400 text-center">Отправим промокод в WhatsApp и перезвоним за 15 минут. Отправляя форму, вы соглашаетесь на обработку персональных данных (152-ФЗ).</p>
                 </form>
                 <button onClick={reset} className="mt-4 text-sm font-bold text-ink-300 hover:text-paper-50 transition-colors">↺ Пройти ещё раз</button>
               </div>
@@ -336,7 +333,7 @@ export function Quiz({ onPlanChosen }: { onPlanChosen: (plan: string) => void })
                 <p className="mt-2 text-ink-300 text-sm max-w-md mx-auto">
                   Менеджер отправит результат, промокод на 2 000 ₽ и доступ к теории в WhatsApp в течение 15 минут (Пн–Сб, 9:00–20:00).
                 </p>
-                <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <div className="mt-6 flex justify-center gap-3">
                   <a href={CONTACTS.wa} target="_blank" rel="noopener noreferrer" className="btn btn-md bg-[#25d366] text-ink-950 hover:brightness-110">
                     <IcWhatsApp className="w-5 h-5" /> Написать первым
                   </a>
@@ -376,16 +373,16 @@ export function LeadForm({ plan, onClearPlan, onLegal }: { plan: string | null; 
   };
 
   return (
-    <section id="lead" className="relative py-20 lg:py-28 overflow-hidden scroll-mt-20" aria-label="Оставить заявку">
+    <section id="lead" className="relative py-20 lg:py-28 overflow-hidden scroll-mt-20">
       <div className="absolute inset-0">
-        <img src={IMG.hero} alt="" aria-hidden="true" loading="lazy" className="w-full h-full object-cover object-right" />
+        <img src={IMG.hero} alt="" aria-hidden="true" loading="lazy" decoding="async" className="w-full h-full object-cover object-right" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/92 to-ink-950/70" />
       </div>
 
       <div className="wrap relative grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <SectionHead
-            num="11"
+            num="12"
             kicker="старт"
             dark
             title="Оставь заявку — заберёшь скидку 2 000 ₽"
@@ -463,8 +460,8 @@ export function LeadForm({ plan, onClearPlan, onLegal }: { plan: string | null; 
                     <input id="lead-phone" className="field" placeholder="+7 (___) ___-__-__" inputMode="tel" required value={phone} onChange={(e) => setPhone(maskPhone(e.target.value))} />
                   </div>
                   <div>
-                    <span className="block text-xs font-extrabold uppercase tracking-wider text-ink-400 mb-1.5">Категория</span>
-                    <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Выбор категории">
+                    <label htmlFor="lead-cat" className="block text-xs font-extrabold uppercase tracking-wider text-ink-400 mb-1.5">Категория</label>
+                    <div className="grid grid-cols-3 gap-2" id="lead-cat" role="radiogroup" aria-label="Выбор категории">
                       {["A", "B", "Пока не знаю"].map((c) => (
                         <button type="button" key={c} onClick={() => setCat(c)} aria-pressed={cat === c}
                           className={`rounded-lg border-2 py-2.5 px-1 text-[12.5px] sm:text-sm font-extrabold transition-all leading-tight ${cat === c ? "border-brand-600 bg-brand-600 text-paper-50 shadow-[0_10px_25px_-12px_rgba(217,30,38,0.7)]" : "border-paper-200 text-ink-500 hover:border-brand-300"}`}>
@@ -488,13 +485,11 @@ export function LeadForm({ plan, onClearPlan, onLegal }: { plan: string | null; 
                     </span>
                   </label>
 
-                  <div className="rounded-lg bg-paper-100 border border-paper-200 p-3.5 flex items-start gap-2.5">
-                    <IcDoc className="w-[18px] h-[18px] text-brand-600 shrink-0 mt-0.5" />
-                    <p className="text-[11px] leading-relaxed text-ink-400">
-                      <b className="text-ink-500">Собираем только имя и телефон</b> — они нужны, чтобы перезвонить и ответить на вопросы.
-                      Обработка персональных данных ведётся в соответствии с законодательством РФ (152-ФЗ): данные хранятся на серверах в России,
-                      не передаются третьим лицам и удаляются по первому запросу.{" "}
-                      <button type="button" onClick={onLegal} className="underline hover:text-brand-600 transition-colors">Подробнее</button>
+                  <div className="rounded-lg border border-paper-200 bg-paper-100 px-4 py-3.5">
+                    <p className="text-[11.5px] leading-relaxed text-ink-500">
+                      <b className="text-ink-900">Как мы обрабатываем данные (152-ФЗ):</b> собираем только имя и телефон для обратного звонка по вашему вопросу.
+                      Данные хранятся на серверах в России, не передаются третьим лицам и удаляются по первому запросу.{" "}
+                      <button type="button" onClick={onLegal} className="text-brand-600 font-bold underline underline-offset-2 hover:text-brand-700 transition-colors">Подробнее</button>
                     </p>
                   </div>
                 </form>
@@ -568,7 +563,7 @@ export function CookieConsent({ onPrivacy }: { onPrivacy: () => void }) {
 /* ================= ПОДВАЛ ================= */
 export function Footer({ onPrivacy, onTerms }: { onPrivacy: () => void; onTerms: () => void }) {
   return (
-    <footer className="bg-ink-950 border-t border-paper-50/10 pb-28 lg:pb-10" aria-label="Подвал сайта">
+    <footer className="bg-ink-950 border-t border-paper-50/10 pb-28 lg:pb-10">
       <div className="wrap pt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_1fr_1fr]">
         <div>
           <a href="#top" className="flex items-center gap-3 w-fit">
@@ -603,8 +598,12 @@ export function Footer({ onPrivacy, onTerms }: { onPrivacy: () => void; onTerms:
 
         <div>
           <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-ink-400 mb-4">Контакты</p>
-          <a href={CONTACTS.phoneHref} className="font-display font-extrabold text-paper-50 text-lg hover:text-brand-400 transition-colors">{CONTACTS.phoneDisplay}</a>
-          <p className="mt-3 flex items-start gap-2 text-sm text-ink-300"><IcPin className="w-4 h-4 mt-0.5 text-brand-500 shrink-0" /> 630099, Новосибирск, ул. Ленина, 12, офис 305</p>
+          <a href={CONTACTS.phoneHref} data-goal="phone_click" className="font-display font-extrabold text-paper-50 text-lg hover:text-brand-400 transition-colors">{CONTACTS.phoneDisplay}</a>
+          <div className="mt-3 flex flex-wrap gap-2.5">
+            <a href={CONTACTS.wa} target="_blank" rel="noopener noreferrer" data-goal="whatsapp_click" className="btn btn-md bg-[#25d366] text-ink-950 hover:brightness-110 !py-2.5"><IcWhatsApp className="w-4 h-4" /> WhatsApp</a>
+            <a href={CONTACTS.tg} target="_blank" rel="noopener noreferrer" className="btn btn-md bg-[#2aabee] text-paper-50 hover:brightness-110 !py-2.5"><IcTelegram className="w-4 h-4" /> Telegram</a>
+          </div>
+          <p className="mt-4 flex items-start gap-2 text-sm text-ink-300"><IcPin className="w-4 h-4 mt-0.5 text-brand-500 shrink-0" /> 630099, Новосибирск, ул. Ленина, 12, офис 305</p>
           <a href={`mailto:${CONTACTS.email}`} className="mt-2 flex items-center gap-2 text-sm text-ink-300 hover:text-brand-400 transition-colors"><IcSend className="w-4 h-4 text-brand-500 shrink-0" /> {CONTACTS.email}</a>
           <p className="mt-2 flex items-center gap-2 text-sm text-ink-300"><IcClock className="w-4 h-4 text-brand-500 shrink-0" /> Пн–Сб, 9:00–20:00</p>
         </div>
@@ -642,16 +641,16 @@ export function LegalModals({ doc, onClose }: { doc: "privacy" | "terms" | null;
         <div className="mt-4 space-y-3 text-sm leading-relaxed text-ink-300">
           {doc === "privacy" ? (
             <>
-              <p>1. Оставляя заявку на сайте za-rulem.ru, вы даёте согласие АНО ДПО «Автошкола ЗА РУЛЁМ» (ИНН 5406825413) на обработку персональных данных: имени и номера телефона — в соответствии со 152-ФЗ «О персональных данных».</p>
+              <p>1. Оставляя заявку на сайте za-rulem.ru, вы даёте согласие АНО ДПО «Автошкола ЗА РУЛЁМ» (ИНН 5406825413) на обработку персональных данных: имени и номера телефона — в соответствии с 152-ФЗ «О персональных данных».</p>
               <p>2. Данные используются только для связи с вами по вопросу обучения: звонок, SMS или сообщение в мессенджере. Мы не передаём их третьим лицам и не используем для сторонней рекламы.</p>
-              <p>3. Сайт использует файлы cookie и обезличенную веб-аналитику (Яндекс.Метрика, Google Analytics) для улучшения работы сервиса. Отключить cookie можно в настройках браузера — сайт продолжит работать.</p>
+              <p>3. Сайт использует файлы cookie и обезличенную веб-аналитику (Яндекс.Метрика, Google Analytics) для улучшения работы сервиса. Согласие на cookie можно отозвать, очистив cookie браузера.</p>
               <p>4. Согласие можно отозвать в любой момент — письмом на {CONTACTS.email} или сообщением в WhatsApp. После этого данные удаляются в течение 3 рабочих дней.</p>
             </>
           ) : (
             <>
               <p>1. Цены и состав тарифов, указанные на сайте, актуальны на текущий учебный сезон и фиксируются в договоре на момент его подписания.</p>
               <p>2. Скидки по акциям («Студентам», «Школьникам», «Учись с другом») применяются при предъявлении подтверждающего документа и суммируются с рассрочкой 0%.</p>
-              <p>3. Рассрочка предоставляется банком-партнёром; одобрение зависит от банка. Альтернатива — оплата частями непосредственно школе, первый взнос от 5 000 ₽.</p>
+              <p>3. Рассрочка предоставляется банком-партнёром Т-Банк (АО «ТБанк», лицензия ЦБ РФ № 2673); одобрение зависит от банка. Альтернатива — оплата частями непосредственно школе, первый взнос от 5 000 ₽.</p>
               <p>4. Замена инструктора производится бесплатно в течение 1 рабочего дня по заявлению ученика в приложении или по телефону школы.</p>
             </>
           )}
