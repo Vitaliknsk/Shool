@@ -52,12 +52,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* длинные слова и заголовки не должны ломать сетку */
 h1, h2, h3, h4 {
   overflow-wrap: break-word;
   text-wrap: balance;
 }
-/* grid-элементы обязаны сжиматься до ширины контента */
 [class~="grid"] > * {
   min-width: 0;
 }
@@ -70,15 +68,12 @@ p, li, a, span, button, td {
 }
 img, iframe, svg, video {
   max-width: 100%;
-  background: var(--color-ink-900);
 }
 
 ::selection {
   background: var(--color-brand-600);
   color: var(--color-paper-50);
 }
-
-/* ---------- плёночное зерно (рисуется из React, см. Noise в App.tsx) ---------- */
 
 /* ---------- каркас ---------- */
 .wrap {
@@ -93,7 +88,7 @@ img, iframe, svg, video {
   .wrap { padding-inline: 2rem; }
 }
 
-/* ---------- производительность: секции ниже первого экрана ---------- */
+/* ---------- производительность ---------- */
 #steps, #app, #instructors, #map, #reviews, #faq, #quiz, #lead {
   content-visibility: auto;
   contain-intrinsic-size: auto 900px;
