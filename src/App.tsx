@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useReducedMotion } from "./lib";
-import { Header, Hero, Numbers, Promos, SplitOffers, Tariffs } from "./sections/TopSections";
+import { Header, Hero, Numbers, SplitOffers, Promos, Tariffs } from "./sections/TopSections";
 import { Steps, Advantages, AppDemo, Instructors, MapSection } from "./sections/MidSections";
 import { Reviews, Faq, Quiz, LeadForm, Footer, LegalModals, MobileBar, CookieConsent } from "./sections/BottomSections";
 
@@ -34,30 +34,9 @@ class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { err
   }
 }
 
-/* ---------- плёночное зерно поверх страницы (prefix собирается в runtime) ---------- */
-function Noise() {
-  const svg =
-    "%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E";
-  const src = ["da", "ta"].join("") + ":image/svg+xml," + svg;
-  return (
-    <div
-      aria-hidden="true"
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 90,
-        pointerEvents: "none",
-        opacity: 0.05,
-        backgroundImage: `url("${src}")`,
-      }}
-    />
-  );
-}
-
 export default function App() {
   return (
     <ErrorBoundary>
-      <Noise />
       <Site />
     </ErrorBoundary>
   );

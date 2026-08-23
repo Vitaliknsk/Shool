@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
-import { useLockBody } from "./lib";
+import { useLockBody, useReducedMotion } from "./lib";
+import { useEffect } from "react";
 import {
-  IcShield, IcBadge, IcCardPercent, IcTax, IcSend, IcMed, IcBook, IcWheel, IcClipboard,
-  IcFlag, IcApp, IcChatPulse, IcStopwatch, IcSwap, IcPhonePlay, IcBus, IcCar, IcMoto,
-  IcRoute, IcGauge, IcUsers, IcClock, IcCalendar, IcStar, IcX,
+  IcX, IcStar, IcShield, IcBadge, IcCardPercent, IcTax, IcSend, IcMed, IcBook, IcWheel,
+  IcClipboard, IcFlag, IcApp, IcChatPulse, IcStopwatch, IcSwap, IcPhonePlay, IcBus,
+  IcCar, IcMoto, IcRoute, IcGauge, IcUsers, IcClock, IcCalendar,
 } from "./icons";
 
-/* ---------- карта иконок по ключам из data.ts ---------- */
-export const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+export const ICONS: Record<string, (p: { className?: string }) => JSX.Element> = {
   shield: IcShield,
   badge: IcBadge,
   card: IcCardPercent,
@@ -39,24 +38,24 @@ export function SectionHead({
   kicker,
   title,
   lead,
-  dark = false,
-  center = false,
+  dark,
+  center,
 }: {
   num: string;
   kicker: string;
-  title: React.ReactNode;
+  title: string;
   lead?: string;
   dark?: boolean;
   center?: boolean;
 }) {
   return (
-    <div className={`relative ${center ? "text-center mx-auto max-w-2xl" : "max-w-3xl"}`}>
-      <div className={`flex items-center gap-3 ${center ? "justify-center" : ""}`}>
-        <span className={`font-display font-black text-sm tracking-widest ${dark ? "text-brand-500" : "text-brand-600"}`}>{num}</span>
-        <span className={`h-px w-10 ${dark ? "bg-brand-500/50" : "bg-brand-600/40"}`} aria-hidden="true" />
-        <span className={`text-xs font-extrabold uppercase tracking-[0.22em] ${dark ? "text-ink-300" : "text-ink-400"}`}>{kicker}</span>
-      </div>
-      <h2 className={`mt-4 font-display font-extrabold tracking-tight text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.08] ${dark ? "text-paper-50" : "text-ink-900"}`}>
+    <div className={center ? "max-w-2xl mx-auto text-center" : "max-w-2xl"}>
+      <p className={`flex ${center ? "justify-center" : ""} items-center gap-3 text-xs font-extrabold uppercase tracking-[0.22em] ${dark ? "text-brand-400" : "text-brand-600"}`}>
+        <span className={`font-display font-black text-sm ${dark ? "text-paper-50/25" : "text-ink-300"}`}>{num}</span>
+        <span className={`h-px w-8 ${dark ? "bg-brand-500/60" : "bg-brand-600/50"}`} aria-hidden="true" />
+        {kicker}
+      </p>
+      <h2 className={`mt-4 font-display font-black tracking-tight text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.08] ${dark ? "text-paper-50" : "text-ink-900"}`}>
         {title}
       </h2>
       {lead && <p className={`mt-4 text-base sm:text-lg leading-relaxed ${dark ? "text-ink-300" : "text-ink-500"}`}>{lead}</p>}
@@ -65,10 +64,10 @@ export function SectionHead({
 }
 
 /* ---------- звёзды рейтинга ---------- */
-export function Stars({ className = "w-4 h-4", n = 5 }: { className?: string; n?: number }) {
+export function Stars({ className = "w-4 h-4" }: { className?: string }) {
   return (
-    <span className="inline-flex gap-0.5 text-brand-500" aria-label={`Оценка ${n} из 5`}>
-      {Array.from({ length: n }).map((_, i) => (
+    <span className="inline-flex gap-0.5 text-brand-500" aria-label="Оценка 5 из 5">
+      {Array.from({ length: 5 }).map((_, i) => (
         <IcStar key={i} className={className} />
       ))}
     </span>
@@ -87,6 +86,7 @@ export function Modal({
   children: React.ReactNode;
   labelledBy?: string;
 }) {
+  const reduced = useReducedMotion();
   useLockBody(open);
   useEffect(() => {
     if (!open) return;
@@ -99,7 +99,7 @@ export function Modal({
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby={labelledBy}>
       <button aria-label="Закрыть" className="absolute inset-0 bg-ink-950/85 backdrop-blur-sm cursor-default" onClick={onClose} />
-      <div className="screen-in relative w-full max-w-lg max-h-[88vh] overflow-y-auto rounded-2xl bg-ink-900 border border-ink-700 shadow-2xl">
+      <div className={`screen-in relative w-full max-w-lg max-h-[88vh] overflow-y-auto rounded-2xl bg-ink-900 border border-ink-700 shadow-2xl ${reduced ? "" : ""}`}>
         <button
           onClick={onClose}
           aria-label="Закрыть окно"

@@ -290,15 +290,15 @@ export const IcDoc = ({ className }: P) => (
   </S>
 );
 
+export const IcQuote = ({ className }: P) => (
+  <S className={className} fill="currentColor">
+    <path stroke="none" d="M9.5 6C6.5 7.5 5 9.8 5 12.6c0 2.6 1.6 4.4 3.8 4.4 2 0 3.4-1.4 3.4-3.4 0-1.9-1.3-3.2-3.1-3.2h-.5c.3-1.4 1.2-2.6 2.7-3.5L9.5 6Zm8.7 0c-3 1.5-4.5 3.8-4.5 6.6 0 2.6 1.6 4.4 3.8 4.4 2 0 3.4-1.4 3.4-3.4 0-1.9-1.3-3.2-3.1-3.2h-.5c.3-1.4 1.2-2.6 2.7-3.5L18.2 6Z" />
+  </S>
+);
+
 export const IcCookie = ({ className }: P) => (
   <S className={className}>
     <path d="M20.7 12.6A9 9 0 1 1 11.4 3.3c.5 2.4 2.3 3.6 4.3 3.6.1 2.1 1.5 3.6 3.6 3.7 0 .7.5 1.5 1.4 2Z" />
     <path d="M8.7 10.2v.01M11.5 15.5v.01M15.2 11.2v.01M10 13.2v.01" strokeWidth={2.6} />
-  </S>
-);
-
-export const IcQuote = ({ className }: P) => (
-  <S className={className} fill="currentColor">
-    <path stroke="none" d="M9.5 6C6.5 7.5 5 9.8 5 12.6c0 2.6 1.6 4.4 3.8 4.4 2 0 3.4-1.4 3.4-3.4 0-1.9-1.3-3.2-3.1-3.2h-.5c.3-1.4 1.2-2.6 2.7-3.5L9.5 6Zm8.7 0c-3 1.5-4.5 3.8-4.5 6.6 0 2.6 1.6 4.4 3.8 4.4 2 0 3.4-1.4 3.4-3.4 0-1.9-1.3-3.2-3.1-3.2h-.5c.3-1.4 1.2-2.6 2.7-3.5L18.2 6Z" />
   </S>
 );
